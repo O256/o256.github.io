@@ -5,7 +5,12 @@
         <img alt="Vue logo" class="logo" src="@/assets/avatar.svg" />
         <span class="username">OLIVER256</span>
       </div>
-      <nav>
+      <div class="menu-toggle" @click="toggleMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav :class="{ 'nav-open': isMenuOpen }">
         <RouterLink to="/draw" class="draw-link">
           <img alt="Draw logo" class="draw-logo" src="@/assets/draw.svg" />
           <span>画板</span>
@@ -29,8 +34,15 @@
 
 <script setup>
 import { RouterLink, RouterView, useRouter } from 'vue-router'
+import { ref } from 'vue'
 
 const router = useRouter()
+
+const isMenuOpen = ref(false)
+
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value
+}
 
 const goToHome = () => {
   router.push('/')
@@ -165,6 +177,65 @@ main {
 
   nav {
     font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 0 1rem;
+  }
+
+  .username {
+    font-size: 1.2rem;
+  }
+
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 100;
+  }
+
+  .menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-text);
+    transition: all 0.3s ease;
+  }
+
+  nav {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: var(--color-background);
+    flex-direction: column;
+    height: auto;
+    padding: 1rem 0;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  nav.nav-open {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  nav a {
+    width: 100%;
+    padding: 1rem;
+    border-left: none;
+    border-bottom: 1px solid var(--color-border);
+    justify-content: center;
+  }
+
+  nav a:last-child {
+    border-bottom: none;
   }
 }
 </style>
