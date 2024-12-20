@@ -21,6 +21,10 @@
         @mousemove="draw"
         @mouseup="stopDrawing"
         @mouseleave="stopDrawing"
+        @touchstart="handleTouchStart"
+        @touchmove="handleTouchMove"
+        @touchend="stopDrawing"
+        @touchcancel="stopDrawing"
       ></canvas>
     </div>
   </template>
@@ -96,6 +100,40 @@
   // 清空画布
   const clearCanvas = () => {
     ctx.clearRect(0, 0, canvasRef.value.width, canvasRef.value.height)
+  }
+  
+  // 处理触摸开始
+  const handleTouchStart = (e) => {
+    e.preventDefault() // 阻止默认行为，防止滚动
+    isDrawing.value = true
+    const touch = e.touches[0]
+    const rect = canvasRef.value.getBoundingClientRect()
+    lastX = touch.clientX - rect.left
+    lastY = touch.clientY - rect.top
+  }
+  
+  // 处理触摸移动
+  const handleTouchMove = (e) => {
+    e.preventDefault()
+    if (!isDrawing.value) return
+  
+    const touch = e.touches[0]
+    const rect = canvasRef.value.getBoundingClientRect()
+    const x = touch.clientX - rect.left
+    const y = touch.clientY - rect.top
+  
+    ctx.beginPath()
+    ctx.strokeStyle = strokeStyle.value
+    ctx.lineWidth = lineWidth.value
+    ctx.lineCap = 'round'
+    ctx.lineJoin = 'round'
+    
+    ctx.moveTo(lastX, lastY)
+    ctx.lineTo(x, y)
+    ctx.stroke()
+  
+    lastX = x
+    lastY = y
   }
   </script>
   
