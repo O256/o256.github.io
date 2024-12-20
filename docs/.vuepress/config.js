@@ -4,6 +4,7 @@ import { defineUserConfig } from 'vuepress'
 
 export default defineUserConfig({
     base: '/docs/',
+    title: 'docs',
     bundler: viteBundler(),
     theme: defaultTheme(),
 })

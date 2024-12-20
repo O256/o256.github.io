@@ -1,29 +1,21 @@
-# o256.github.io
+# 背景
+- 一些资料页面
+- 一些工具页面
 
-This template should help get you started developing with Vue 3 in Vite.
+# 工具
 
-## Recommended IDE Setup
+| 工具     | 说明                             | 是否完成 |
+| -------- | -------------------------------- | -------- |
+| 世界时间 | 输入时间戳可以看到世界各地的时间 |          |
+|          |                                  |          |
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
 
-## Customize configuration
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+# 资料
 
-## Project Setup
+| 资料            | 说明                    | 是否完成 |
+| --------------- | ----------------------- | -------- |
+| vue初始案例剖析 | 对初始的vue文件进行剖析 |          |
+|                 |                         |          |
+|                 |                         |          |
 
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
