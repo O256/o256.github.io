@@ -1,6 +1,6 @@
 <template>
-  <div id="home-view">
-    <h1 class="moving-text" ref="movingText">Hello World</h1>
+  <div id="home-view" @click="moveTextToClick">
+    <img class="moving-img" ref="movingText" src="@/assets/avatar.png" alt="Avatar">
   </div>
 </template>
 
@@ -8,10 +8,10 @@
 export default {
   name: 'HomeView',
   mounted() {
-    this.moveTextRandomly();
+    this.centerText();
   },
   methods: {
-    moveTextRandomly() {
+    centerText() {
       const textElement = this.$refs.movingText;
       const container = this.$el;
       const containerWidth = container.clientWidth;
@@ -19,12 +19,22 @@ export default {
       const textWidth = textElement.clientWidth;
       const textHeight = textElement.clientHeight;
 
-      setInterval(() => {
-        const randomX = Math.random() * (containerWidth - textWidth);
-        const randomY = Math.random() * (containerHeight - textHeight);
+      const centerX = (containerWidth - textWidth) / 2;
+      const centerY = (containerHeight - textHeight) / 2;
 
-        textElement.style.transform = `translate(${randomX}px, ${randomY}px)`;
-      }, 2000); // 每秒移动一次
+      textElement.style.left = `${centerX}px`;
+      textElement.style.top = `${centerY}px`;
+    },
+    moveTextToClick(event) {
+      const textElement = this.$refs.movingText;
+      const textWidth = textElement.clientWidth;
+      const textHeight = textElement.clientHeight;
+
+      const targetX = event.clientX - textWidth / 2;
+      const targetY = event.clientY - 60 - textHeight / 2;
+
+      textElement.style.left = `${targetX}px`;
+      textElement.style.top = `${targetY}px`;
     }
   }
 };
@@ -34,7 +44,7 @@ export default {
 html, body {
   margin: 0;
   padding: 0;
-  overflow: hidden; /* 禁止滚动条 */
+  overflow: hidden; /* Disable scrollbars */
   height: 100%;
   width: 100%;
 }
@@ -43,13 +53,17 @@ html, body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
   position: relative;
-  height: 100vh; /* 视口高度 */
-  width: 100vw; /* 视口宽度 */
+  height: 100vh; /* Viewport height */
+  width: 100vw; /* Viewport width */
   overflow: hidden;
 }
 
-.moving-text {
+.moving-img {
+  width: 40px;
+  height: 40px;
   position: absolute;
-  transition: transform 2s ease;
+  transition: left 1s ease-in-out, top 1s ease-in-out; /* Smooth transition */
+  left: 0;
+  top: 0;
 }
 </style>
