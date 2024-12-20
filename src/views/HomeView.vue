@@ -1,6 +1,6 @@
 <template>
   <div id="home-view" @click="moveTextToClick">
-    <img class="moving-img" ref="movingText" src="@/assets/avatar.png" alt="Avatar">
+    <div class="moving-text" ref="movingText">hello world</div>
   </div>
 </template>
 
@@ -58,12 +58,14 @@ html, body {
   overflow: hidden;
 }
 
-.moving-img {
-  width: 40px;
-  height: 40px;
+.moving-text {
+  width: auto;
+  height: auto;
   position: absolute;
   transition: left 1s ease-in-out, top 1s ease-in-out; /* Smooth transition */
   left: 0;
   top: 0;
+  white-space: nowrap; /* Prevent text from wrapping */
+  font-size: 20px; /* Adjust font size as needed */
 }
 </style>
