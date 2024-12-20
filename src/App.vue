@@ -6,6 +6,10 @@
         <span class="username">OLIVER256</span>
       </div>
       <nav>
+        <RouterLink to="/draw" class="draw-link">
+          <img alt="Draw logo" class="draw-logo" src="@/assets/draw.svg" />
+          <span>画板</span>
+        </RouterLink>
         <RouterLink to="/docs" class="docs-link">
           <img alt="Docs logo" class="docs-logo" src="@/assets/docs.svg" />
           <span>文档</span>
@@ -125,6 +129,20 @@ nav a:first-of-type {
 }
 
 .github-logo {
+  height: 24px;
+  margin-right: 0.5rem;
+  /* 反色 */
+  filter: invert(1);
+}
+
+.draw-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.draw-logo {
   height: 24px;
   margin-right: 0.5rem;
   /* 反色 */
