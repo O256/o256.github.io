@@ -57,6 +57,9 @@
   
   // 开始绘制
   const startDrawing = (e) => {
+    // 只响应鼠标左键
+    if (e.button !== 0) return
+    
     isDrawing.value = true
     const rect = canvasRef.value.getBoundingClientRect()
     lastX = e.clientX - rect.left
