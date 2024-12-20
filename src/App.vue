@@ -73,6 +73,7 @@ header {
   width: 100%;
   /* Ensure header takes the full width */
   border-bottom: 1px solid var(--color-border);
+  z-index: 1001;
 }
 
 .left-section {
@@ -196,7 +197,7 @@ main {
     width: 24px;
     height: 20px;
     cursor: pointer;
-    z-index: 100;
+    z-index: 1002;
   }
 
   .menu-toggle span {
@@ -219,6 +220,7 @@ main {
     transform: translateY(-100%);
     opacity: 0;
     transition: all 0.3s ease;
+    z-index: 1000;
   }
 
   nav.nav-open {
