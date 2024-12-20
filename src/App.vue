@@ -2,8 +2,8 @@
   <div class="app-container">
     <header>
       <div class="left-section" @click="goToHome">
-        <img alt="Vue logo" class="logo" src="@/assets/avatar.png" />
-        <span class="username">Oliver256</span>
+        <img alt="Vue logo" class="logo" src="@/assets/avatar.svg" />
+        <span class="username">OLIVER256</span>
       </div>
       <nav>
         <RouterLink to="/docs" class="docs-link">
@@ -67,7 +67,7 @@ header {
 
 .logo {
   height: 100%;
-  max-height: 40px;
+  max-height: 28px;
   margin-right: 1rem;
 }
 
