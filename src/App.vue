@@ -6,7 +6,14 @@
         <span class="username">Oliver256</span>
       </div>
       <nav>
-        <RouterLink to="/docs">文档</RouterLink>
+        <RouterLink to="/docs" class="docs-link">
+          <img alt="Docs logo" class="docs-logo" src="@/assets/docs.svg" />
+          <span>文档</span>
+        </RouterLink>
+        <a href="https://github.com/O256" target="_blank" class="github-link">
+          <img alt="GitHub logo" class="github-logo" src="@/assets/github.svg" />
+          <span>GitHub</span>
+        </a>
       </nav>
     </header>
 
@@ -94,6 +101,34 @@ nav a {
 
 nav a:first-of-type {
   border: 0;
+}
+
+.docs-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.docs-logo {
+  height: 24px;
+  margin-right: 0.5rem;
+  /* 反色 */
+  filter: invert(1);
+}
+
+.github-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.github-logo {
+  height: 24px;
+  margin-right: 0.5rem;
+  /* 反色 */
+  filter: invert(1);
 }
 
 main {
