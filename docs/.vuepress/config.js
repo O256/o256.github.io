@@ -5,7 +5,7 @@ import { defineUserConfig } from 'vuepress'
 export default defineUserConfig({
     base: '/docs/',
     title: 'docs',
-    avatar: 'avatar.png',
+    avatar: '/docs/avatar.png',
 
     bundler: viteBundler(),
     theme: defaultTheme(),
