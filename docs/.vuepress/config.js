@@ -11,18 +11,18 @@ export default defineUserConfig({
         logo: '/avatar.png',
         navbar: [
             {
-                text: '首页',
+                text: 'Home',
                 link: '/',
             },
             {
                 text: 'Redis',
                 children: [
                     {
-                        text:  '基础使用',
+                        text:  '教程',
                         link: '/redis/basics/',
                     },
                     {
-                        text: '源码剖析',
+                        text: '剖析',
                         link: '/redis/source/',
                     },
                 ],
@@ -31,11 +31,11 @@ export default defineUserConfig({
                 text: 'Git',
                 children: [
                     {
-                        text: '基础使用',
+                        text: '教程',
                         link: '/git/basics/',
                     },
                     {
-                        text: '源码剖析',
+                        text: '剖析',
                         link: '/git/source/',
                     }
                 ],
