@@ -1,7 +1,7 @@
 ---
 home: true
-heroImage: /avatar.png
-heroText: 知崖
+heroImage: /sun.jpg
+heroText: 笔记
 tagline: 吾生也有涯，而知也无涯。
 features:
 - title: Redis
