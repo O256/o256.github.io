@@ -11,15 +11,15 @@
         <span></span>
       </div>
       <nav :class="{ 'nav-open': isMenuOpen }">
-        <RouterLink to="/draw" class="draw-link">
+        <RouterLink to="/draw" class="draw-link" @click="handleNavClick">
           <img alt="Draw logo" class="draw-logo" src="@/assets/draw.svg" />
           <span>画板</span>
         </RouterLink>
-        <RouterLink to="/docs" class="docs-link">
+        <RouterLink to="/docs" class="docs-link" @click="handleNavClick">
           <img alt="Docs logo" class="docs-logo" src="@/assets/docs.svg" />
           <span>文档</span>
         </RouterLink>
-        <a href="https://github.com/O256" target="_blank" class="github-link">
+        <a href="https://github.com/O256" target="_blank" class="github-link" @click="handleNavClick">
           <img alt="GitHub logo" class="github-logo" src="@/assets/github.svg" />
           <span>GitHub</span>
         </a>
@@ -46,6 +46,11 @@ const toggleMenu = () => {
 
 const goToHome = () => {
   router.push('/')
+}
+
+const handleNavClick = (event) => {
+  event.stopPropagation()
+  isMenuOpen.value = false
 }
 </script>
 
@@ -171,16 +176,6 @@ main {
   /* Ensure main takes the full width */
 }
 
-@media (min-width: 1024px) {
-  header {
-    padding: 0 4rem;
-  }
-
-  nav {
-    font-size: 1rem;
-  }
-}
-
 @media (max-width: 768px) {
   header {
     padding: 0 1rem;
@@ -221,23 +216,25 @@ main {
     opacity: 0;
     transition: all 0.3s ease;
     z-index: 1000;
+    pointer-events: none;
   }
 
   nav.nav-open {
     transform: translateY(0);
     opacity: 1;
+    pointer-events: auto;
   }
 
   nav a {
     width: 100%;
     padding: 1rem;
     border-left: none;
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: none;
     justify-content: center;
   }
 
-  nav a:last-child {
-    border-bottom: none;
+  nav a:not(:last-child) {
+    border-bottom: 1px solid var(--color-border);
   }
 }
 </style>
