@@ -18,12 +18,8 @@ export default defineUserConfig({
                 text: 'Redis',
                 children: [
                     {
-                        text: '基础概念',
+                        text:  '基础使用',
                         link: '/redis/basics/',
-                    },
-                    {
-                        text: '高级特性',
-                        link: '/redis/advanced/',
                     },
                     {
                         text: '源码剖析',
@@ -35,8 +31,12 @@ export default defineUserConfig({
                 text: 'Git',
                 children: [
                     {
-                        text: '如何使用',
-                        link: '/git/usage/',
+                        text: '基础使用',
+                        link: '/git/basics/',
+                    },
+                    {
+                        text: '源码剖析',
+                        link: '/git/source/',
                     }
                 ],
             },
