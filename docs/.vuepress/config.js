@@ -31,6 +31,15 @@ export default defineUserConfig({
                     },
                 ],
             },
+            {
+                text: 'Git',
+                children: [
+                    {
+                        text: '如何使用',
+                        link: '/git/usage/',
+                    }
+                ],
+            },
         ],
     }),
 
