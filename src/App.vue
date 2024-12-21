@@ -105,6 +105,22 @@ nav {
   height: 100%;
 }
 
+nav a {
+  flex: 1; /* 均分空间 */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 1rem;
+  border-left: 1px solid var(--color-border);
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+nav a:first-of-type {
+  border: 0;
+}
+
 nav a.router-link-exact-active {
   color: var(--color-text);
 }
@@ -113,32 +129,8 @@ nav a.router-link-exact-active:hover {
   background-color: transparent;
 }
 
-nav a {
-  display: inline-flex;
-  align-items: center;
-  height: 100%;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-.docs-link {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: var(--color-text);
-}
-
-.docs-logo {
-  height: 24px;
-  margin-right: 0.5rem;
-  /* 反色 */
-  filter: invert(1);
-}
-
+.draw-link,
+.docs-link,
 .github-link {
   display: flex;
   align-items: center;
@@ -146,24 +138,17 @@ nav a:first-of-type {
   color: var(--color-text);
 }
 
+.draw-logo,
+.docs-logo,
 .github-logo {
   height: 24px;
   margin-right: 0.5rem;
-  /* 反色 */
-  filter: invert(1);
+  filter: var(--icon-filter, none);
 }
 
-.draw-link {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: var(--color-text);
-}
-
-.draw-logo {
-  height: 24px;
-  margin-right: 0.5rem;
-  /* 反色 */
+:root[data-theme="dark"] .draw-logo,
+:root[data-theme="dark"] .docs-logo,
+:root[data-theme="dark"] .github-logo {
   filter: invert(1);
 }
 
@@ -226,6 +211,7 @@ main {
   }
 
   nav a {
+    flex: none;
     width: 100%;
     padding: 1rem;
     border-left: none;
@@ -235,6 +221,15 @@ main {
 
   nav a:not(:last-child) {
     border-bottom: 1px solid var(--color-border);
+  }
+
+  .draw-logo,
+  .docs-logo,
+  .github-logo {
+    height: 20px;
+    margin-right: 0.75rem;
+    display: inline-block;
+    filter: var(--icon-filter, none);
   }
 }
 </style>
