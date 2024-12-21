@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /sun.jpg
+heroImage: /sun.jpeg
 heroText: 笔记
 tagline: 吾生也有涯，而知也无涯。
 features:
