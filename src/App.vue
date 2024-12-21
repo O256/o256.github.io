@@ -17,7 +17,7 @@
         </RouterLink>
         <RouterLink to="/docs" class="docs-link" @click="handleNavClick">
           <img alt="Docs logo" class="docs-logo" src="@/assets/docs.svg" />
-          <span>文档</span>
+          <span>笔记</span>
         </RouterLink>
         <a href="https://github.com/O256" target="_blank" class="github-link" @click="handleNavClick">
           <img alt="GitHub logo" class="github-logo" src="@/assets/github.svg" />
