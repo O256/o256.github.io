@@ -3,12 +3,11 @@ home: true
 heroImage: /sun.jpeg
 heroText: 笔记
 tagline: 吾生也有涯，而知也无涯。
+
+
 features:
 - title: Redis
-  details: Redis 相关知识整理，包括基础概念、高级特性与源码剖析
-  link: /redis/basics/
+  details: Redis 是一个可以持久化导磁盘上的内存数据库。数据模型是键值，但支持多种不同类型的值：字符串、列表、集合、有序集合、哈希、流、HyperLogLog、位图。
 - title: Git
-  details: Git 相关知识整理，包括基础概念、高级特性与源码剖析
-  link: /git/basics/
+  details: Git 是一个分布式版本控制系统，用于跟踪文件的更改，协调多个开发者之间的合作。
 ---
-

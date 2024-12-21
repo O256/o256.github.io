@@ -11,20 +11,20 @@ export default defineUserConfig({
         logo: '/avatar.png',
         navbar: [
             {
-                text: 'Home',
-                link: '/',
-            },
-            {
                 text: 'Redis',
                 children: [
                     {
-                        text:  '教程',
+                        text: '教程',
                         link: '/redis/basics/',
                     },
                     {
                         text: '剖析',
                         link: '/redis/source/',
                     },
+                    {
+                        text: '注释',
+                        link: 'https://github.com/O256/redis',
+                    }
                 ],
             },
             {
