@@ -11,11 +11,15 @@
         <span></span>
       </div>
       <nav :class="{ 'nav-open': isMenuOpen }">
-        <RouterLink to="/draw" class="draw-link" @click="handleNavClick">
+        <RouterLink to="/draw" class="router-link" @click="handleNavClick">
           <img alt="Draw logo" class="draw-logo" src="@/assets/draw.svg" />
           <span>画板</span>
         </RouterLink>
-        <RouterLink to="/docs" class="docs-link" @click="handleNavClick">
+        <RouterLink to="/ball" class="router-link" @click="handleNavClick">
+          <img alt="Ball logo" class="ball-logo" src="@/assets/ball.svg" />
+          <span>球</span>
+        </RouterLink>
+        <RouterLink to="/docs" class="router-link" @click="handleNavClick">
           <img alt="Docs logo" class="docs-logo" src="@/assets/docs.svg" />
           <span>笔记</span>
         </RouterLink>
@@ -62,7 +66,6 @@ const handleNavClick = (event) => {
   flex-direction: column;
   height: 100vh;
   width: 100%;
-  /* Ensure app-container takes the full width */
 }
 
 header {
@@ -76,7 +79,6 @@ header {
   left: 0;
   right: 0;
   width: 100%;
-  /* Ensure header takes the full width */
   border-bottom: 1px solid var(--color-border);
   z-index: 1001;
 }
@@ -106,7 +108,7 @@ nav {
 }
 
 nav a {
-  flex: 1; /* 均分空间 */
+  flex: 1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -115,6 +117,9 @@ nav a {
   border-left: 1px solid var(--color-border);
   text-decoration: none;
   color: var(--color-text);
+  width: auto;
+  min-width: 80px; /* 增加最小宽度 */
+  white-space: nowrap; /* 防止换行 */
 }
 
 nav a:first-of-type {
@@ -129,24 +134,24 @@ nav a.router-link-exact-active:hover {
   background-color: transparent;
 }
 
-.draw-link,
-.docs-link,
-.github-link {
+nav .router-link {
   display: flex;
   align-items: center;
   text-decoration: none;
   color: var(--color-text);
+  width: auto;
+  min-width: 80px; /* 增加最小宽度 */
+  white-space: nowrap; /* 防止换行 */
 }
 
-.draw-logo,
-.docs-logo,
-.github-logo {
+nav img {
   height: 24px;
   margin-right: 0.5rem;
   filter: var(--icon-filter, none);
 }
 
 :root[data-theme="dark"] .draw-logo,
+:root[data-theme="dark"] .ball-logo,
 :root[data-theme="dark"] .docs-logo,
 :root[data-theme="dark"] .github-logo {
   filter: invert(1);
@@ -158,7 +163,6 @@ main {
   margin: 0;
   margin-top: 60px;
   width: 100%;
-  /* Ensure main takes the full width */
 }
 
 @media (max-width: 768px) {

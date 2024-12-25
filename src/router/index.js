@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import DrawView from '../views/DrawView.vue'
-
+import BallView from '../views/BallView.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -26,6 +26,11 @@ const router = createRouter({
           next();
         }
       }
+    },
+    {
+      path: '/ball',
+      name: 'ball',
+      component: BallView
     }
   ],
 })
