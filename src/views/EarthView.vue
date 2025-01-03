@@ -9,7 +9,7 @@
           </div>
           <ul v-if="location.expanded">
             <li v-for="subLocation in location.subLocations" :key="subLocation.name"
-              @click="flyToLocation(subLocation)">
+              @click="flyToLocation(subLocation, location.name)">
               {{ subLocation.name }}
             </li>
           </ul>
@@ -30,7 +30,7 @@ export default {
   setup() {
     const globeContainer = ref(null);
     const globeInstance = ref(null);
-    const selectedLocation = ref(null); // 新增选中的位置状态
+    const countriesData = ref([]); // 保存国家数据
 
     const colorScale = scaleSequentialSqrt(interpolateYlOrRd);
 
@@ -47,21 +47,30 @@ export default {
       location.expanded = !location.expanded;
     };
 
-    const flyToLocation = (location) => {
-      selectedLocation.value = location; // 设置选中的位置
+    const flyToLocation = (location, country) => {
       if (globeInstance.value) {
         globeInstance.value.pointOfView({ lat: location.lat, lng: location.lng, altitude: 2 }, 2000);
-        // 触发高亮显示
-        globeInstance.value
-          .polygonAltitude(d => d === selectedLocation.value ? 0.12 : 0.06)
-          .polygonCapColor(d => d === selectedLocation.value ? 'steelblue' : colorScale(getVal(d)));
+
+        // 通过经纬度找到对应的国家
+        console.log(countriesData.value)
+        const flyD = countriesData.value.find(d => d.properties.ISO_A2 === country);
+
+        console.log(flyD)
+        highlightCountry(flyD);
       }
+    };
+
+    const highlightCountry = (country) => {
+      globeInstance.value
+        .polygonAltitude(d => d === country ? 0.12 : 0.06)
+        .polygonCapColor(d => d === country ? 'steelblue' : colorScale(getVal(d)));
     };
 
     onMounted(() => {
       fetch('ne_110m_admin_0_countries.geojson')
         .then(res => res.json())
         .then(countries => {
+          countriesData.value = countries.features; // 保存国家数据
           const maxVal = Math.max(...countries.features.map(getVal));
           colorScale.domain([0, maxVal]);
 
@@ -75,38 +84,11 @@ export default {
             .polygonSideColor(() => 'rgba(0, 100, 0, 0.15)')
             .polygonStrokeColor(() => '#111')
             .polygonLabel(({ properties: d }) => `
-              <b>${d.ADMIN} (${d.ISO_A2}):</b> <br />
-              GDP: <i>${d.GDP_MD_EST}</i> M$<br/>
-              Population: <i>${d.POP_EST}</i>
-            `)
-            .onPolygonHover(hoverD => globeInstance.value
-              .polygonAltitude(d => d === hoverD ? 0.12 : 0.06)
-              .polygonCapColor(d => d === hoverD ? 'steelblue' : colorScale(getVal(d)))
-            )
-            .polygonsTransitionDuration(300);
-
-          // Add markers for first level locations (triangles)
-          globeInstance.value
-            .customLayerData(locations.value)
-            .customThreeObject(d => {
-              const geometry = new THREE.ConeGeometry(0.3, 0.6, 3);
-              const material = new THREE.MeshBasicMaterial({ color: 'blue' });
-              return new THREE.Mesh(geometry, material);
+              <b>${d.ADMIN} (${d.ISO_A2}):</b> `)
+            .onPolygonHover(hoverD => {
+              highlightCountry(hoverD);
             })
-            .customThreeObjectUpdate((obj, d) => {
-              Object.assign(obj.position, globeInstance.value.getCoords(d.lat, d.lng, 0.1));
-              obj.material.color.set(d === selectedLocation.value ? 'yellow' : 'blue'); // 根据选中状态改变颜色
-            });
-
-          // Add markers for second level locations (circles)
-          const subLocations = locations.value.flatMap(loc => loc.subLocations);
-          globeInstance.value
-            .pointsData(subLocations)
-            .pointLat(d => d.lat)
-            .pointLng(d => d.lng)
-            .pointColor(d => d === selectedLocation.value ? 'yellow' : 'red') // 根据选中状态改变颜色
-            .pointAltitude(() => 0.1)
-            .pointRadius(() => 0.1);
+            .polygonsTransitionDuration(300);
 
           // Auto-rotate
           globeInstance.value.controls().autoRotate = true;
@@ -118,6 +100,7 @@ export default {
         .then(res => res.json())
         .then(data => {
           locations.value = data.locations;
+          updateMarkers();
         });
     });
 
@@ -146,11 +129,9 @@ export default {
 .locations-list {
   position: absolute;
   top: 50px;
-  /* Changed from bottom to top */
   right: 20px;
   width: 300px;
   max-height: calc(100vh - 40px);
-  /* Adjusted to fit within the viewport */
   background-color: rgba(68, 68, 68, 0);
   padding: 10px;
   border-radius: 8px;
@@ -173,30 +154,8 @@ export default {
   transition: background-color 0.3s;
 }
 
-.locations-list li:hover {
-  background-color: #a5a5a500;
+.locations-list ul li li:hover {
+  background-color: #a5a5a5;
 }
 
-/* Custom scrollbar styles */
-.locations-list::-webkit-scrollbar {
-  width: 8px;
-  /* Adjust the width of the scrollbar */
-}
-
-.locations-list::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.1);
-  /* Track color */
-  border-radius: 10px;
-}
-
-.locations-list::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.4);
-  /* Thumb color */
-  border-radius: 10px;
-}
-
-.locations-list::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.6);
-  /* Thumb color on hover */
-}
 </style>
