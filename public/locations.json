@@ -1,0 +1,77 @@
+{
+    "locations": [
+      {
+        "name": "USA",
+        "lat": 37.0902,
+        "lng": -95.7129,
+        "expanded": false,
+        "subLocations": [
+          { "name": "New York", "lat": 40.7128, "lng": -74.0060 },
+          { "name": "Los Angeles", "lat": 34.0522, "lng": -118.2437 },
+          { "name": "Chicago", "lat": 41.8781, "lng": -87.6298 },
+          { "name": "Houston", "lat": 29.7604, "lng": -95.3698 }
+        ]
+      },
+      {
+        "name": "UK",
+        "lat": 55.3781,
+        "lng": -3.4360,
+        "expanded": false,
+        "subLocations": [
+          { "name": "London", "lat": 51.5074, "lng": -0.1278 },
+          { "name": "Manchester", "lat": 53.4808, "lng": -2.2426 },
+          { "name": "Birmingham", "lat": 52.4862, "lng": -1.8904 },
+          { "name": "Glasgow", "lat": 55.8642, "lng": -4.2518 }
+        ]
+      },
+      {
+        "name": "Canada",
+        "lat": 56.1304,
+        "lng": -106.3468,
+        "expanded": false,
+        "subLocations": [
+          { "name": "Toronto", "lat": 43.6511, "lng": -79.3837 },
+          { "name": "Vancouver", "lat": 49.2827, "lng": -123.1207 },
+          { "name": "Montreal", "lat": 45.5017, "lng": -73.5673 },
+          { "name": "Calgary", "lat": 51.0447, "lng": -114.0719 }
+        ]
+      },
+      {
+        "name": "Australia",
+        "lat": -25.2744,
+        "lng": 133.7751,
+        "expanded": false,
+        "subLocations": [
+          { "name": "Sydney", "lat": -33.8688, "lng": 151.2093 },
+          { "name": "Melbourne", "lat": -37.8136, "lng": 144.9631 },
+          { "name": "Brisbane", "lat": -27.4698, "lng": 153.0251 },
+          { "name": "Perth", "lat": -31.9505, "lng": 115.8605 }
+        ]
+      },
+      {
+        "name": "Germany",
+        "lat": 51.1657,
+        "lng": 10.4515,
+        "expanded": false,
+        "subLocations": [
+          { "name": "Berlin", "lat": 52.5200, "lng": 13.4050 },
+          { "name": "Munich", "lat": 48.1351, "lng": 11.5820 },
+          { "name": "Frankfurt", "lat": 50.1109, "lng": 8.6821 },
+          { "name": "Hamburg", "lat": 53.5511, "lng": 9.9937 }
+        ]
+      },
+      {
+        "name": "Japan",
+        "lat": 36.2048,
+        "lng": 138.2529,
+        "expanded": false,
+        "subLocations": [
+          { "name": "Tokyo", "lat": 35.6895, "lng": 139.6917 },
+          { "name": "Osaka", "lat": 34.6937, "lng": 135.5023 },
+          { "name": "Nagoya", "lat": 35.1815, "lng": 136.9066 },
+          { "name": "Sapporo", "lat": 43.0621, "lng": 141.3544 }
+        ]
+      }
+    ]
+  }
+  
