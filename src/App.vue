@@ -19,6 +19,10 @@
           <img alt="Ball logo" class="ball-logo" src="@/assets/ball.svg" />
           <span>球</span>
         </RouterLink>
+        <RouterLink to="/earth" class="router-link" @click="handleNavClick">
+          <img alt="Earth logo" class="earth-logo" src="@/assets/earth.svg" />
+          <span>地球</span>
+        </RouterLink>
         <RouterLink to="/docs" class="router-link" @click="handleNavClick">
           <img alt="Docs logo" class="docs-logo" src="@/assets/docs.svg" />
           <span>笔记</span>
