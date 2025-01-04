@@ -188,9 +188,13 @@ export default {
                 highlightCountry(contry);
                 // 隐藏信息容器
                 infoContainerRef.value.style.display = 'none';
+                // 停止转动
+                globeInstance.value.controls().autoRotate = false;
               } else {
                 highlightCountry(null);
                 // infoContainerRef.value.style.display = 'block';
+                // 开始转动
+                globeInstance.value.controls().autoRotate = true;
               }
             })
             .polygonsTransitionDuration(300);
