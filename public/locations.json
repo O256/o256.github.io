@@ -2,6 +2,7 @@
     "locations": [
       {
         "name": "USA",
+        "ISO_A2": "US",
         "lat": 37.0902,
         "lng": -95.7129,
         "expanded": false,
@@ -13,7 +14,8 @@
         ]
       },
       {
-        "name": "UK",
+        "name": "United Kingdom",
+        "ISO_A2": "GB",
         "lat": 55.3781,
         "lng": -3.4360,
         "expanded": false,
@@ -26,6 +28,7 @@
       },
       {
         "name": "Canada",
+        "ISO_A2": "CA",
         "lat": 56.1304,
         "lng": -106.3468,
         "expanded": false,
@@ -38,6 +41,7 @@
       },
       {
         "name": "Australia",
+        "ISO_A2": "AU",
         "lat": -25.2744,
         "lng": 133.7751,
         "expanded": false,
@@ -50,6 +54,7 @@
       },
       {
         "name": "Germany",
+        "ISO_A2": "DE",
         "lat": 51.1657,
         "lng": 10.4515,
         "expanded": false,
@@ -62,6 +67,7 @@
       },
       {
         "name": "Japan",
+        "ISO_A2": "JP",
         "lat": 36.2048,
         "lng": 138.2529,
         "expanded": false,
