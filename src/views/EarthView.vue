@@ -61,43 +61,46 @@ export default {
         const flyD = countriesData.value.find(d => d.properties.ISO_A2 === country);
         if (flyD) {
           highlightCountry(flyD);
-          // 显示国旗和信息
           showFlagAndInfo(location, flyD);
-          // 停止旋转
           globeInstance.value.controls().autoRotate = false;
         }
       }
     };
 
     const highlightCountry = (country) => {
-      globeInstance.value
-        .polygonAltitude(d => {
-          // console.log('Highlighting country:', d.properties.ISO_A2, 'with altitude:', d === country ? 0.12 : 0.06);
-          return d.properties.ISO_A2 === country.properties.ISO_A2 ? 0.08 : 0.06;
-        })
-        .polygonCapColor(d => {
-          // console.log('Highlighting country:', d.properties.ISO_A2, 'with color:', d === country ? 'steelblue' : colorScale(getVal(d)));
-          return d.properties.ISO_A2 === country.properties.ISO_A2 ? 'steelblue' : colorScale(getVal(d));
-        });
+      if (country) {
+        globeInstance.value
+          .polygonAltitude(d => {
+            return d.properties.ISO_A2 === country.properties.ISO_A2 ? 0.08 : 0.06;
+          })
+          .polygonCapColor(d => {
+            return d.properties.ISO_A2 === country.properties.ISO_A2 ? 'steelblue' : colorScale(getVal(d));
+          });
+
+        // 添加标记数据
+        markers.value = { lat: country.lat, lng: country.lng, ISO_A2: country.properties.ISO_A2 };
+        updateMarkers();
+      } else {
+        markers.value = [];
+        updateMarkers();
+        globeInstance.value.polygonAltitude(0.06);
+        globeInstance.value.polygonCapColor(d => colorScale(getVal(d)));
+      }
     };
 
     const showFlagAndInfo = (location, country) => {
       const infoContainer = infoContainerRef.value;
       if (!infoContainer) return;
 
+      infoContainer.style.display = 'block';
       // 清空之前的内容
       infoContainer.innerHTML = '';
-
-      // 创建国旗元素
-      const flag = document.createElement('img');
-      flag.src = `https://flagcdn.com/w320/${country.properties.ISO_A2.toLowerCase()}.png`; // 使用 flagcdn 获取国旗
-      flag.alt = `${country.properties.ADMIN} Flag`;
-      flag.className = 'flag';
-
       // 创建信息元素
       const infoBox = document.createElement('div');
       infoBox.className = 'info-box';
       infoBox.innerHTML = `
+        <img src="https://flagcdn.com/w320/${country.properties.ISO_A2.toLowerCase()}.png" alt="${country.properties.ADMIN} Flag" class="flag">
+        </br>
         <b>${country.properties.ADMIN} (${country.properties.ISO_A2}):</b>
         <br />
         Population: ${country.properties.POP_EST.toLocaleString()}
@@ -106,16 +109,11 @@ export default {
       `;
 
       // 将国旗和信息添加到容器中
-      infoContainer.appendChild(flag);
       infoContainer.appendChild(infoBox);
 
       // 保存当前地点以便在每次渲染帧时更新位置
       currentLocation.value = location;
       updateInfoContainerPosition();
-
-      // 添加标记数据
-      markers.value = { lat: location.lat, lng: location.lng, ISO_A2: country.properties.ISO_A2 };
-      updateMarkers();
     };
 
     const updateInfoContainerPosition = () => {
@@ -149,8 +147,6 @@ export default {
             // 选中国家的点
             if (d.ISO_A2 === markers.value.ISO_A2) {
               z = 0.08;
-
-              // 变成红色
               obj.material.color.setRGB(1, 0, 0);
             }
           }
@@ -163,22 +159,39 @@ export default {
         .then(res => res.json())
         .then(countries => {
           countriesData.value = countries.features; // 保存国家数据
-          const maxVal = Math.max(...countries.features.map(getVal));
-          colorScale.domain([0, maxVal]);
+          const maxVal = Math.max(...countries.features.map(getVal)); // 获取最大值
+          colorScale.domain([0, maxVal]); // 设置颜色比例尺的域
 
           globeInstance.value = Globe()(globeContainer.value)
             .globeImageUrl('/earth-night.jpg')
             .backgroundImageUrl('/night-sky.png')
             .lineHoverPrecision(0)
             .polygonsData(countries.features.filter(d => d.properties.ISO_A2 !== 'AQ'))
-            .polygonAltitude(0.06)
-            .polygonCapColor(feat => colorScale(getVal(feat)))
-            .polygonSideColor(() => 'rgba(0, 100, 0, 0.15)')
-            .polygonStrokeColor(() => '#111')
+            .polygonAltitude(0.06) // 设置国家的高度
+            .polygonCapColor(feat => colorScale(getVal(feat))) // 设置国家的颜色
+            .polygonSideColor(() => 'rgba(0, 100, 0, 0.15)') // 设置国家的边框颜色
+            .polygonStrokeColor(() => '#111') // 设置国家的边框颜色
             .polygonLabel(({ properties: d }) => `
-              <b>${d.ADMIN} (${d.ISO_A2}):</b> `)
+              <div class="info-box">
+                <img src="https://flagcdn.com/w320/${d.ISO_A2.toLowerCase()}.png" alt="${d.ADMIN} Flag" class="flag">
+                <br />
+                <b>${d.ADMIN} (${d.ISO_A2}):</b> 
+                <br />
+                Population: ${d.POP_EST.toLocaleString()}
+                <br />
+                GDP: ${d.GDP_MD_EST.toLocaleString()} USD
+              </div>
+              `)
             .onPolygonHover(hoverD => {
-              highlightCountry(hoverD);
+              if (hoverD) {
+                const contry = countriesData.value.find(d => d.properties.ISO_A2 === hoverD.properties.ISO_A2);
+                highlightCountry(contry);
+                // 隐藏信息容器
+                infoContainerRef.value.style.display = 'none';
+              } else {
+                highlightCountry(null);
+                // infoContainerRef.value.style.display = 'block';
+              }
             })
             .polygonsTransitionDuration(300);
 
@@ -280,15 +293,6 @@ export default {
   position: absolute;
   z-index: 1001;
   pointer-events: none;
-  /* 使其不可点击 */
-}
-
-.info-box {
-  background-color: white;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  margin-left: 10px;
 }
 </style>
 
@@ -299,5 +303,12 @@ export default {
   /* 调整国旗的宽度并增加优先级 */
   height: auto !important;
   /* 保持宽高比并增加优先级 */
+}
+
+.info-box {
+  background-color: rgba(97, 97, 97, 0.363);
+  padding: 10px;
+  border-radius: 8px;
+  margin-left: 10px;
 }
 </style>
