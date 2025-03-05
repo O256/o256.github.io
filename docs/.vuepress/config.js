@@ -40,6 +40,28 @@ export default defineUserConfig({
                     }
                 ],
             },
+            {
+                text: '优秀作文',
+                link: '/essay/',
+                children: [
+                    {
+                        text: '三年级',
+                        link: '/essay/grade3/',
+                    },
+                    {
+                        text: '四年级',
+                        link: '/essay/grade4/',
+                    },
+                    {
+                        text: '五年级',
+                        link: '/essay/grade5/',
+                    },
+                    {
+                        text: '六年级',
+                        link: '/essay/grade6/',
+                    }
+                ],
+            }
         ],
     }),
 
