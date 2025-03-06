@@ -6,16 +6,16 @@
 
 ## 添加新文档
 
-在docs目录下创建目录，比如essay
-在essay目录下创建子目录，比如grade3
-在grade3目录下创建index.md文件
-**在docs目录下执行`npm run docs:dev`命令启动项目**
-在浏览器中访问<http://localhost:8080/docs/>即可看到效果
+1. 在docs目录下创建目录，比如essay
+2. 在essay目录下创建子目录，比如grade3
+3. 在grade3目录下创建index.md文件
+4. **在docs目录下执行`npm run docs:dev`命令启动项目**
+5. 在浏览器中访问<http://localhost:8080/docs/>即可看到效果
 
 ## 在页面中增加图片
 
-将图片放到对应的markdown文件的同级目录下
-在markdown文件中使用markdown语法插入图片
+1. 将图片放到对应的markdown文件的同级目录下
+2. 在markdown文件中使用markdown语法插入图片
 
 ```markdown
 ![alt text](image.png)
@@ -23,8 +23,8 @@
 
 ## 在页面中增加视频
 
-将视频放到对应的markdown文件的同级目录下
-在markdown文件中使用markdown语法插入视频
+1. 将视频放到对应的markdown文件的同级目录下
+2. 在markdown文件中使用markdown语法插入视频
 
 ```markdown
 <video src="video.mp4" controls></video>
