@@ -10,7 +10,7 @@
 2. 在essay目录下创建子目录，比如grade3
 3. 在grade3目录下创建index.md文件
 4. **在docs目录下执行`npm run docs:dev`命令启动项目**
-5. 在浏览器中访问<http://localhost:8080/docs/>即可看到效果
+5. 在浏览器中访问<http://localhost:8080/docs/essay/grade3/index.html>即可看到效果
 
 ## 在页面中增加图片
 
