@@ -42,27 +42,49 @@ export default defineUserConfig({
             },
             {
                 text: '优秀作文',
-                link: '/essay/',
                 children: [
                     {
                         text: '三年级',
-                        link: '/essay/grade3/',
+                        link: '/essay/grade3/content/plants.md',
                     },
                     {
                         text: '四年级',
-                        link: '/essay/grade4/',
+                        link: '/essay/grade4/content/animals.md',
                     },
                     {
                         text: '五年级',
-                        link: '/essay/grade5/',
+                        link: '/essay/grade5/content/animals.md',
                     },
-                    {
-                        text: '六年级',
-                        link: '/essay/grade6/',
-                    }
                 ],
             }
         ],
+
+        sidebar: {
+            '/essay/grade3/': [
+                {
+                    text: '三年级',
+                    link: '/essay/grade3/content/plants.md',
+                    children: [
+                        {
+                            text: '优秀范文',
+                            link: '/essay/grade3/content/plants.md',
+                            children: [
+                                '/essay/grade3/content/animals.md',
+                                '/essay/grade3/content/characters.md',
+                                '/essay/grade3/content/plants.md',
+                            ]
+                        },
+                        {
+                            text: '写作技巧',
+                            link: '/essay/grade3/tips/structure.md',
+                            children: [
+                                '/essay/grade3/tips/structure.md',
+                            ]
+                        },
+                    ],
+                },
+            ],
+        },
     }),
 
     head: [
