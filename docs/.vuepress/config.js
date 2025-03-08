@@ -11,8 +11,8 @@ export default defineUserConfig({
         logo: '/avatar.png',
         navbar: [
             {
-                text: '首页',
-                link: '/',
+                text: '主页',
+                link: 'https://o256.github.io/',
             },
             {
                 text: 'Redis',
