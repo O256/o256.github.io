@@ -4,7 +4,7 @@ import { defineUserConfig } from 'vuepress'
 
 export default defineUserConfig({
     base: '/docs/',
-    title: 'docs',
+    title: 'OLIVER256的笔记',
 
     bundler: viteBundler(),
     theme: defaultTheme({
