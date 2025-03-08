@@ -2,7 +2,7 @@
 title: Markdown速查表
 ---
 
-## 概述
+## 速查表
 
 - 这个速查表是根据Markdown的官方文档和一些常用的Markdown编辑器整理的。
 
