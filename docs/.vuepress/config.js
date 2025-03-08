@@ -56,7 +56,11 @@ export default defineUserConfig({
                         link: '/essay/grade5/content/animals.md',
                     },
                 ],
-            }
+            },
+            {
+                text: 'Markdown',
+                link: '/markdown/content.md',
+            },
         ],
 
         sidebar: {
@@ -82,6 +86,22 @@ export default defineUserConfig({
                             ]
                         },
                     ],
+                },
+            ],
+            '/markdown/': [
+                {
+                    text: 'Markdown',
+                    link: '/markdown/content.md',
+                    children: [
+                        {
+                            text: '语法',
+                            link: '/markdown/content.md',
+                        },
+                        {
+                            text: '速查表',
+                            link: '/markdown/cheatsheet.md',
+                        },
+                    ]
                 },
             ],
         },
