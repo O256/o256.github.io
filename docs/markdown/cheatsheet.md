@@ -2,13 +2,13 @@
 title: Markdown速查表
 ---
 
-[[toc]]
-
-## 整体说明
+## 概述
 
 - 这个速查表是根据Markdown的官方文档和一些常用的Markdown编辑器整理的。
 
 ## 基本语法
+
+[Markdown官方速查](https://commonmark.org/help/)
 
 | <div style="width:200px;text-align:left">元素</div>  | <div style="width:300px;text-align:left">语法</div> |
 | --- | --- |
@@ -26,15 +26,25 @@ title: Markdown速查表
 
 ## 扩展语法
 
+[VuePress扩展语法](https://vuepress.vuejs.org/zh/guide/markdown.html)  
+[GFM扩展语法](https://docs.github.com/zh/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables)
+
 | <div style="width:200px;text-align:left">元素</div>  | <div style="width:300px;text-align:left">语法</div>  |
 | --- | --- |
 | 表格 | `\| 表头 \| 表头 \|`<br>`\| --- \| --- \|`<br>`\| 内容 \| 内容 \|` |
-| 任务列表 | `- [ ] 任务` |
 | 删除线 | `~~删除线~~` |
+| 标题锚点 | `[标题](#标题)` |
+| 内部链接 | `[链接](https://www.example.com)` |
+| Emoji | `:emoji:` |
+| 目录 | `[[toc]]` |
+| 代码块扩展 | `代码标题` <br> `行高亮` <br> `行号`  <br> `v-pre` |
+| 导入代码块 | `@[code](../foo.js)` |
+| Vue语法支持 | ` {{ 1 + 1 }} ` <br>  `组件 ` |
 
 ## 测试一下
 
 ### 代码块测试
+
 ```json
 {
     "name": "张三",
@@ -44,10 +54,12 @@ title: Markdown速查表
 ```
 
 ### 任务列表
+
 - [ ] 任务
 - [x] 任务
 
 ### 表格
+
 | 姓名 | 年龄 | 性别 |
 | --- | --- | --- |
 | 张三 | 18 | 男 |
@@ -86,7 +98,6 @@ title: Markdown速查表
 
 ![蝴蝶](image.avif)
 
-
 ### 上标
 
 test<sup>上标</sup>
@@ -95,8 +106,6 @@ test<sup>上标</sup>
 
 test<sub>下标</sub>
 
-
 ### 颜色
 
 这是一个带颜色的文本 `#FF00FF` 哈哈
-

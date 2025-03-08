@@ -91,15 +91,15 @@ export default defineUserConfig({
             '/markdown/': [
                 {
                     text: 'Markdown',
-                    link: '/markdown/content.md',
+                    link: '/markdown/cheatsheet.md',
                     children: [
-                        {
-                            text: '语法',
-                            link: '/markdown/content.md',
-                        },
                         {
                             text: '速查表',
                             link: '/markdown/cheatsheet.md',
+                        },
+                        {
+                            text: '语法记录',
+                            link: '/markdown/content.md',
                         },
                     ]
                 },
