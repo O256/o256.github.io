@@ -4,7 +4,11 @@ title: Markdown速查表
 
 ## 速查表
 
-- 这个速查表是根据Markdown的官方文档和一些常用的Markdown编辑器整理的。
+**本速查表主要参考文档**
+
+- [Markdown官方速查](https://commonmark.org/help/)
+- [VuePress扩展语法](https://vuepress.vuejs.org/zh/guide/markdown.html)
+- [GFM扩展语法](https://docs.github.com/zh/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables)
 
 ## 基本语法
 
