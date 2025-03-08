@@ -4,6 +4,9 @@
 
 文档示例：<https://github.com/vuepress/docs>
 
+支持通用[markdown](https://commonmark.org/)语法，支持markdown速查表
+
+
 ## 添加新文档
 
 1. 在docs目录下创建目录，比如essay
