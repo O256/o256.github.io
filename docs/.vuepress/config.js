@@ -11,6 +11,10 @@ export default defineUserConfig({
         logo: '/avatar.png',
         navbar: [
             {
+                text: '首页',
+                link: '/',
+            },
+            {
                 text: 'Redis',
                 children: [
                     {
