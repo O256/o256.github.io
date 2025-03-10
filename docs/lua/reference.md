@@ -10,7 +10,7 @@ Lua以库的形式存在，基于Clean C(标准C和C++的公共子集)开发。L
 
 作为扩展语言，Lua没有`main`函数的概念：它能潜入到其他程序中，这个被嵌入的程序称为宿主；或者作为独立程序使用，这个独立程序通常是指单独的`lua`可执行文件。可以执行一段Lua代码，可以写入或者读取Lua变量，也可以注册C函数给Lua使用。通过使用C函数，Lua可以增强其应对各种不同领域的能力，从而创建共享语法框架的定制编程语言。
 
-Lua是免费软件，遵循Lua许可证(MIT许可证)发布。手册中描述的实现可在Lua的官方网站[lua.org](https://www.lua.org/)找到。
+Lua是开源免费软件，遵循Lua许可证(MIT许可证)发布。手册中描述的实现可在Lua的官方网站[lua.org](https://www.lua.org/)找到。
 
 跟其他参考手册一样，本文档会比较枯燥。关于Lua背后设计原理，可以参考Lua网站上的[技术论文](https://www.lua.org/papers.html)。有关Lua编程更详细介绍，可以参考Roberto的[《Lua程序设计》](https://www.lua.org/pil/)。
 
