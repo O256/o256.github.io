@@ -63,7 +63,7 @@ export default defineUserConfig({
             },
             {
                 text: 'Markdown',
-                link: '/markdown/content.md',
+                link: '/markdown/cheatsheet.md',
             },
         ],
 
