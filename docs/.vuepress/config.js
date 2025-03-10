@@ -16,59 +16,28 @@ export default defineUserConfig({
             },
             {
                 text: 'Redis',
-                children: [
-                    {
-                        text: '教程',
-                        link: '/redis/basics/',
-                    },
-                    {
-                        text: '剖析',
-                        link: '/redis/source/',
-                    },
-                    {
-                        text: '注释',
-                        link: 'https://github.com/O256/redis',
-                    }
-                ],
+                link: '/redis/basics/',
             },
             {
                 text: 'Git',
-                children: [
-                    {
-                        text: '教程',
-                        link: '/git/basics/',
-                    },
-                    {
-                        text: '剖析',
-                        link: '/git/source/',
-                    }
-                ],
+                link: '/git/basics/',
             },
             {
                 text: '优秀作文',
-                children: [
-                    {
-                        text: '三年级',
-                        link: '/essay/grade3/content/plants.md',
-                    },
-                    {
-                        text: '四年级',
-                        link: '/essay/grade4/content/animals.md',
-                    },
-                    {
-                        text: '五年级',
-                        link: '/essay/grade5/content/animals.md',
-                    },
-                ],
+                link: '/essay/grade3/content/plants.md',
             },
             {
                 text: 'Markdown',
                 link: '/markdown/cheatsheet.md',
             },
+            {
+                text: 'Lua',
+                link: '/lua/reference.md',
+            },
         ],
 
         sidebar: {
-            '/essay/grade3/': [
+            '/essay/': [
                 {
                     text: '三年级',
                     link: '/essay/grade3/content/plants.md',
@@ -77,9 +46,9 @@ export default defineUserConfig({
                             text: '优秀范文',
                             link: '/essay/grade3/content/plants.md',
                             children: [
+                                '/essay/grade3/content/plants.md',
                                 '/essay/grade3/content/animals.md',
                                 '/essay/grade3/content/characters.md',
-                                '/essay/grade3/content/plants.md',
                             ]
                         },
                         {
@@ -90,6 +59,14 @@ export default defineUserConfig({
                             ]
                         },
                     ],
+                },
+                {
+                    text: '四年级',
+                    link: '/essay/grade4/index.md',
+                },
+                {
+                    text: '五年级',
+                    link: '/essay/grade5/index.md',
                 },
             ],
             '/markdown/': [
@@ -106,6 +83,30 @@ export default defineUserConfig({
                             link: '/markdown/content.md',
                         },
                     ]
+                },
+            ],
+            '/redis/': [
+                {
+                    text: 'Redis',
+                    link: '/redis/basics/',
+                },
+            ],
+            '/git/': [
+                {
+                    text: 'Git',
+                    link: '/git/basics/',
+                },
+            ],
+            '/lua/': [
+                {
+                    text: 'Lua',
+                    link: '/lua/reference.md',
+                    children: [
+                        {
+                            text: '参考手册',
+                            link: '/lua/reference.md',
+                        },
+                    ],
                 },
             ],
         },
