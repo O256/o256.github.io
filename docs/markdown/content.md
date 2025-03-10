@@ -66,6 +66,8 @@ title: 语法记录
 
 这是一个行内公式：$E=mc^2$
 
+测试下公式 $\sqrt{3x-1}+(1+x)^2$
+
 ### 块级公式
 
 这是一个块级公式：
@@ -127,3 +129,58 @@ title 甘特图
 ## 强调
 
 ==强调==
+
+## 折叠
+
+<details open>
+    <summary>折叠示例</summary>
+    <p>这是一个折叠示例</p>
+</details>
+
+
+## 关系图
+
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
+
+## 使用 TopoJSON
+
+```topojson
+{
+  "type": "Topology",
+  "transform": {
+    "scale": [0.0005000500050005, 0.00010001000100010001],
+    "translate": [100, 0]
+  },
+  "objects": {
+    "example": {
+      "type": "GeometryCollection",
+      "geometries": [
+        {
+          "type": "Point",
+          "properties": {"prop0": "value0"},
+          "coordinates": [4000, 5000]
+        },
+        {
+          "type": "LineString",
+          "properties": {"prop0": "value0", "prop1": 0},
+          "arcs": [0]
+        },
+        {
+          "type": "Polygon",
+          "properties": {"prop0": "value0",
+            "prop1": {"this": "that"}
+          },
+          "arcs": [[1]]
+        }
+      ]
+    }
+  },
+  "arcs": [[[4000, 0], [1999, 9999], [2000, -9999], [2000, 9999]],[[0, 0], [0, 9999], [2000, 0], [0, -9999], [-2000, 0]]]
+}
+```
