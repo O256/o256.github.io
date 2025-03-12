@@ -56,6 +56,8 @@ export default defineUserConfig({
                             link: '/essay/grade3/tips/structure.md',
                             children: [
                                 '/essay/grade3/tips/structure.md',
+                                '/essay/grade3/tips/rhetoric.md',
+                                '/essay/grade3/tips/sensory.md',
                             ]
                         },
                     ],
