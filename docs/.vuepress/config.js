@@ -23,7 +23,7 @@ export default defineUserConfig({
                 link: '/git/basics/',
             },
             {
-                text: '优秀作文',
+                text: '作文',
                 link: '/essay/grade3/content/plants.md',
             },
             {
