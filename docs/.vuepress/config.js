@@ -121,6 +121,10 @@ export default defineUserConfig({
                     text: '如何更好地提问',
                     link: '/collection/HowToAskQuestionsTheSmartWay.md',
                 },
+                {
+                    text: '如何有效地报告 Bug',
+                    link: '/collection/HowToEffectivelyReportBugs.md',
+                },
             ],
         },
     }),
