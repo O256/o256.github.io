@@ -13,6 +13,7 @@ export default defineUserConfig({
             {
                 text: '主页',
                 link: 'https://o256.github.io/',
+                target: '_self',
             },
             {
                 text: 'Redis',
@@ -24,16 +25,20 @@ export default defineUserConfig({
             },
             {
                 text: '作文',
-                link: '/essay/grade3/content/plants.md',
+                link: '/essay/',
             },
             {
                 text: 'Markdown',
-                link: '/markdown/cheatsheet.md',
+                link: '/markdown/',
             },
             {
                 text: 'Lua',
-                link: '/lua/reference.md',
+                link: '/lua/',
             },
+            {
+                text: '收藏',
+                link: '/collection/',
+            }
         ],
 
         sidebar: {
@@ -109,6 +114,12 @@ export default defineUserConfig({
                             link: '/lua/reference.md',
                         },
                     ],
+                },
+            ],
+            '/collection/': [
+                {
+                    text: '如何更好地提问',
+                    link: '/collection/HowToAskQuestionsTheSmartWay.md',
                 },
             ],
         },
